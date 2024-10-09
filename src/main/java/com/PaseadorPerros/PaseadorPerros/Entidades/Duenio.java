@@ -30,6 +30,9 @@ public class Duenio {
     @Column(unique = true, nullable = false)
     private String email;
 
+    public Duenio() {
+    }
+
     public Duenio(String documento, String nombre, String apellido, String telefono, String direccion, Ciudad ciudad, Genero genero, String email) {
         this.documento = documento;
         this.nombre = nombre;

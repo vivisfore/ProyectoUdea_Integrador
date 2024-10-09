@@ -1,5 +1,5 @@
 package com.PaseadorPerros.PaseadorPerros.Entidades;
 
 public enum Ciudad {
-    Manizales,Medellín,Bogotá
+    Manizales,Medellín,Bogotá,Cali
 }

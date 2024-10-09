@@ -32,6 +32,9 @@ public class Paseador {
 
     private String foto;
 
+    public Paseador(){
+    }
+
     public Paseador(String documento, String nombre, String apellido, String telefono, String direccion, Genero genero, String email, float calificacion, String foto) {
         this.documento = documento;
         this.nombre = nombre;
