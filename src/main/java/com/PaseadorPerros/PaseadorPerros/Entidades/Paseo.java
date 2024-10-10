@@ -32,9 +32,18 @@ public class Paseo {
     @JoinColumn(name = "paseador")
     private Paseador paseador;
 
+    //Relacion Paseo-Perro---> Genera tabla resultante de la relacion unicamente con llaves foraneas
     @ManyToMany(targetEntity = Perro.class, fetch = FetchType.LAZY)
-    @JoinTable(name = "RegistroPaseo", joinColumns = @JoinColumn(name = "id_paseo"),inverseJoinColumns = @JoinColumn(name = "id_perro"))
+    @JoinTable(name = "RegistroPaseo",
+            joinColumns = @JoinColumn(name = "id_paseo"),
+            inverseJoinColumns = @JoinColumn(name = "id_perro"),
+            uniqueConstraints = @UniqueConstraint(columnNames = {"id_paseo","id_perro"})
+    )
+    //--------------------------------------------------------------------------------------------
     private List<Perro> perro;
+
+    @OneToMany(mappedBy = "paseo",fetch = FetchType.LAZY)
+    private List<PaseoPerro> paseoPerros;
 
     public Paseo(int id_paseo, LocalDate fecha, LocalDate hora_inicio, LocalDate hora_fin, float distancia, String ruta, float valor, Paseador paseador, List<Perro> perro) {
         this.id_paseo = id_paseo;

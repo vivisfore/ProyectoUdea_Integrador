@@ -31,6 +31,9 @@ public class Perro {
     @JsonIgnore
     private Duenio duenio;
 
+    @OneToMany(mappedBy = "perro",fetch = FetchType.LAZY)
+    private List<PaseoPerro> paseoPerros;
+
     public Perro() {
     }
 
