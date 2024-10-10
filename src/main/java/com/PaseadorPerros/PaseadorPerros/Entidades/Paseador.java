@@ -3,6 +3,8 @@ package com.PaseadorPerros.PaseadorPerros.Entidades;
 import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.util.List;
+
 @Entity
 public class Paseador {
 
@@ -31,6 +33,9 @@ public class Paseador {
     private float calificacion;
 
     private String foto;
+
+    @OneToMany(targetEntity = Paseo.class,fetch = FetchType.LAZY,mappedBy = "paseador")
+    private List<Paseo> paseo;
 
     public Paseador(){
     }

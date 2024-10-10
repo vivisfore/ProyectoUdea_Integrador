@@ -7,40 +7,35 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/paseador")
+@RequestMapping("/Paseador")
 public class PaseadorControlador {
 
     @Autowired
     private PaseadorServicio paseadorServicio;
 
     @PostMapping
-    public ResponseEntity<Paseador> crearPaseador(@RequestBody Paseador paseador) {
-        String apellido = paseador.getApellido();
-        String nombre = paseador.getNombre();
+    public ResponseEntity<Paseador> crearPaseador(@RequestBody Paseador paseador){
+        Paseador paseadorCreado=paseadorServicio.savePaseador(paseador);
+        return  new ResponseEntity<>(paseadorCreado, HttpStatus.CREATED);
+    }
 
-        String nuevoApellido = apellido.toUpperCase();
-        String nuevoNombre = nombre.toUpperCase();
-
-        paseador.setNombre(nuevoNombre);
-        paseador.setApellido(nuevoApellido);
-
-        Paseador paseadorCreado = paseadorServicio.savePaseador(paseador);
-
-        return new ResponseEntity<>(paseadorCreado, HttpStatus.CREATED);
+    @GetMapping
+    public List<Paseador> todos(){
+        return paseadorServicio.getAll();
     }
 
     @DeleteMapping("/{documento}")
-    public ResponseEntity<Void> deletePaseadorById(@PathVariable String documento) {
-        paseadorServicio.deletePaseadoById(documento);
+    public ResponseEntity<Void> deletePaseadorById(@PathVariable String documento){
+        paseadorServicio.deletePaseadorById(documento);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/{documento}")
-    public ResponseEntity<Paseador> getPaseadorById(@PathVariable String documento) {
-        Optional<Paseador> paseador = paseadorServicio.getPaseadorById(documento);
-        return paseador.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public Optional<Paseador> getPaseadorById(@PathVariable String documento){
+        return paseadorServicio.getPaseadorById(documento);
     }
 }

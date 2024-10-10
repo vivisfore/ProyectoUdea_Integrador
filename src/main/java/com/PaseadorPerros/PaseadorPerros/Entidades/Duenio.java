@@ -2,6 +2,8 @@ package com.PaseadorPerros.PaseadorPerros.Entidades;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="Dueño")
 public class Duenio {
@@ -29,6 +31,9 @@ public class Duenio {
 
     @Column(unique = true, nullable = false)
     private String email;
+
+    @OneToMany(targetEntity = Perro.class,fetch = FetchType.LAZY, mappedBy = "duenio")
+    private List<Perro> perro;
 
     public Duenio() {
     }
