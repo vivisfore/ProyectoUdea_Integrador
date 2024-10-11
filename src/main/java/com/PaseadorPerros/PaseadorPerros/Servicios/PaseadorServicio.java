@@ -1,6 +1,8 @@
 package com.PaseadorPerros.PaseadorPerros.Servicios;
 
 import com.PaseadorPerros.PaseadorPerros.Entidades.Paseador;
+import com.PaseadorPerros.PaseadorPerros.Entidades.Paseo;
+import com.PaseadorPerros.PaseadorPerros.Entidades.Perro;
 import com.PaseadorPerros.PaseadorPerros.Repositorios.PaseadorRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

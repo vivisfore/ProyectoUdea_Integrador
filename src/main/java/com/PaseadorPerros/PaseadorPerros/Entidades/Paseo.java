@@ -3,6 +3,7 @@ package com.PaseadorPerros.PaseadorPerros.Entidades;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -17,10 +18,10 @@ public class Paseo {
     private LocalDate fecha;
 
     @Column(columnDefinition = "TIME", nullable = false)
-    private LocalDate hora_inicio;
+    private LocalTime hora_inicio;
 
     @Column(columnDefinition = "TIME", nullable = true)
-    private LocalDate hora_fin;
+    private LocalTime hora_fin;
 
     private float distancia;
     private String ruta;
@@ -45,7 +46,7 @@ public class Paseo {
     @OneToMany(mappedBy = "paseo",fetch = FetchType.LAZY)
     private List<PaseoPerro> paseoPerros;
 
-    public Paseo(int id_paseo, LocalDate fecha, LocalDate hora_inicio, LocalDate hora_fin, float distancia, String ruta, float valor, Paseador paseador, List<Perro> perro) {
+    public Paseo(int id_paseo, LocalDate fecha, LocalTime hora_inicio, LocalTime hora_fin, float distancia, String ruta, float valor, Paseador paseador, List<Perro> perro) {
         this.id_paseo = id_paseo;
         this.fecha = fecha;
         this.hora_inicio = hora_inicio;
@@ -76,19 +77,19 @@ public class Paseo {
         this.fecha = fecha;
     }
 
-    public LocalDate getHora_inicio() {
+    public LocalTime getHora_inicio() {
         return hora_inicio;
     }
 
-    public void setHora_inicio(LocalDate hora_inicio) {
+    public void setHora_inicio(LocalTime hora_inicio) {
         this.hora_inicio = hora_inicio;
     }
 
-    public LocalDate getHora_fin() {
+    public LocalTime getHora_fin() {
         return hora_fin;
     }
 
-    public void setHora_fin(LocalDate hora_fin) {
+    public void setHora_fin(LocalTime hora_fin) {
         this.hora_fin = hora_fin;
     }
 
