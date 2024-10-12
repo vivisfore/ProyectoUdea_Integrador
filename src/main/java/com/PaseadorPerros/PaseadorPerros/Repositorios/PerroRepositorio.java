@@ -11,4 +11,8 @@ import java.util.List;
 public interface PerroRepositorio extends JpaRepository<Perro, Integer> {
     @Query("SELECT p FROM Perro p JOIN FETCH p.duenio")
     List<Perro> findAllWithDuenios();
+
+    Perro findByNombre(String nombre);
+
+    List<Perro> findByRaza(String raza);
 }

@@ -18,7 +18,7 @@ public class Perro {
     private Genero_Mascota genero;
 
     @Column(nullable = false, length = 100)
-    private String Raza;
+    private String raza;
 
     @Column(nullable = false)
     private float peso;
@@ -41,7 +41,7 @@ public class Perro {
         this.id_perro = id_perro;
         this.nombre = nombre;
         this.genero = genero;
-        Raza = raza;
+        raza = raza;
         this.peso = peso;
         this.edad = edad;
         this.duenio = duenio;
@@ -72,11 +72,11 @@ public class Perro {
     }
 
     public String getRaza() {
-        return Raza;
+        return raza;
     }
 
     public void setRaza(String raza) {
-        Raza = raza;
+        raza = raza;
     }
 
     public float getPeso() {
@@ -109,7 +109,7 @@ public class Perro {
                 "id_perro=" + id_perro +
                 ", nombre='" + nombre + '\'' +
                 ", genero=" + genero +
-                ", Raza='" + Raza + '\'' +
+                ", Raza='" + raza + '\'' +
                 ", peso=" + peso +
                 ", edad=" + edad +
                 ", duenio=" + duenio +

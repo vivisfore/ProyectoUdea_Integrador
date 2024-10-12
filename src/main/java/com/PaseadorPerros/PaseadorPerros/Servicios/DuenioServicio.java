@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DuenioServicio {
+public class DuenioServicio{
 
     @Autowired
     private DuenioRepositorio duenioRepository;
